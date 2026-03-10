@@ -1,6 +1,9 @@
 const express = require("express");
 const cors = require("cors");
-require("dotenv").config({ path: "../.env" })
+// require("dotenv").config({ path: "../.env" })
+require("dotenv").config()
+
+console.log("OPENROUTER KEY:", process.env.OPENROUTER_API_KEY ? "Loaded ✅" : "Missing ❌");
 
 const promptRoutes = require("./routes/prompt");
 

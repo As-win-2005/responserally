@@ -1,32 +1,33 @@
 const openrouterProvider = require("../providers/openrouterProvider")
 
-async function evaluateResponses(prompt,responses){
+async function evaluateResponses(prompt, responses) {
 
-try{
+  try {
 
-let evaluationPrompt = `You are an AI evaluator.
+    let evaluationPrompt = `You are an AI evaluator.
 
 User Prompt:
 ${prompt}
 
 Below are responses from different AI models.
-
 `
 
-responses.forEach((r,i)=>{
+    responses.forEach((r,i)=>{
 
-if(r.status === "success"){
-evaluationPrompt += `
+      if(r.status === "success"){
+
+        evaluationPrompt += `
 Model ${i+1}: ${r.provider}
 Response:
 ${r.text}
 
 `
-}
 
-})
+      }
 
-evaluationPrompt += `
+    })
+
+    evaluationPrompt += `
 Evaluate the responses based on:
 1. Accuracy
 2. Clarity
@@ -34,8 +35,9 @@ Evaluate the responses based on:
 
 Give each response a score from 1 to 10.
 
-Return ONLY JSON like this:
+Return ONLY valid JSON.
 
+Example:
 {
  "scores":[
    {"provider":"model_name","score":8}
@@ -43,22 +45,47 @@ Return ONLY JSON like this:
 }
 `
 
-const judge = await openrouterProvider(
-evaluationPrompt,
-"openai/gpt-4o-mini"
-)
+    const judge = await openrouterProvider(
+      evaluationPrompt,
+      "openai/gpt-4o-mini"
+    )
 
-const result = JSON.parse(judge.text)
+    if(!judge || judge.status === "error"){
+      console.log("AI Judge returned error")
+      return []
+    }
 
-return result.scores
+    if(!judge.text){
+      console.log("AI Judge empty response")
+      return []
+    }
 
-}catch(err){
+    let parsed
 
-console.log("AI Judge Error",err)
+    try{
+      parsed = JSON.parse(judge.text)
+    }
+    catch(err){
+      console.log("AI Judge JSON parse failed")
+      console.log(judge.text)
+      return []
+    }
 
-return []
+    if(parsed && parsed.scores){
+      return parsed.scores
+    }
 
-}
+    return []
+
+  }
+
+  catch(err){
+
+    console.log("AI Judge Error:", err)
+
+    return []
+
+  }
 
 }
 
