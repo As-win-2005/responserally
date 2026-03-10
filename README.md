@@ -1,347 +1,370 @@
-🧠 ResponseRally
-Agentic AI Research & Benchmarking Suite for Multi-LLM Evaluation
-<p align="center"> <img src="https://img.shields.io/badge/AI-Agentic%20AI-blue"/> <img src="https://img.shields.io/badge/LLM-Benchmarking-green"/> <img src="https://img.shields.io/badge/React-Frontend-61DAFB"/> <img src="https://img.shields.io/badge/Node.js-Backend-339933"/> <img src="https://img.shields.io/badge/Docker-Containerized-2496ED"/> </p>
-🚀 Overview
+# 🚀 ResponseRally
+### Agentic AI Research & Benchmarking Suite for Multi-LLM Comparison
 
-ResponseRally is a modern AI benchmarking and comparison platform designed to evaluate and analyze responses from multiple Large Language Models (LLMs) through a unified interface.
+ResponseRally is a modern **AI benchmarking platform** that allows users to submit a single prompt and **compare responses from multiple Large Language Models (LLMs)** side-by-side.
 
-It enables researchers, developers, and AI enthusiasts to submit a single prompt and compare responses from multiple AI models side-by-side, enabling better insights into model quality, performance, and response characteristics.
+The system collects responses from different AI models, evaluates them using **performance metrics and AI-based judging**, and displays results in a **clean dashboard with analytics and charts**.
 
-The platform follows a modular Agentic AI architecture that orchestrates multiple AI providers and visualizes their outputs with interactive analytics.
+This platform helps **developers, researchers, and AI engineers evaluate model performance, response quality, and efficiency**.
 
-🎯 Motivation
+---
+<img width="1917" height="632" alt="image" src="https://github.com/user-attachments/assets/8ede31b6-fb95-4e6d-9f00-c6a61a78d1c8" />
+<img width="1919" height="744" alt="image" src="https://github.com/user-attachments/assets/87d83eb2-6588-4f5d-a8d8-08be93396e90" />
+<img width="1891" height="907" alt="image" src="https://github.com/user-attachments/assets/6a7b4a57-5e5c-4841-9b80-5e2a6e6334c3" />
+<img width="1889" height="754" alt="image" src="https://github.com/user-attachments/assets/2df3dee8-3846-4b34-869a-e73722aaff7d" />
+<img width="1876" height="900" alt="image" src="https://github.com/user-attachments/assets/84f5baea-853c-4c10-b384-d8575127dbd2" />
 
-The rapid growth of LLMs (GPT, Claude, Gemini, etc.) has created a need for systematic evaluation tools that can:
 
-Compare AI model responses
+# 🌟 Features
 
-Benchmark performance
+## 🔹 Multi-Model Prompt Comparison
+Submit one prompt and compare responses from multiple AI models simultaneously.
 
-Evaluate response quality
+Supported models include:
 
-Measure latency and output differences
+- OpenAI GPT-4o Mini
+- Meta Llama-3
+- DeepSeek Chat
 
-ResponseRally solves this problem by providing a unified benchmarking suite.
+---
 
-✨ Key Features
-🔹 Multi-LLM Response Comparison
+## 🔹 AI Judge Evaluation
+An AI model evaluates responses based on:
 
-Submit one prompt and receive responses from multiple AI providers simultaneously.
+- Accuracy
+- Clarity
+- Completeness
 
-🔹 Agentic AI Orchestration
+Each response receives a **quality score (1-10)** and the system recommends the **best performing model**.
 
-Backend acts as an AI orchestration agent that routes prompts to different models.
+---
 
-🔹 Interactive UI Dashboard
+## 🔹 Benchmark Metrics
+ResponseRally measures important performance metrics:
 
-Clean and intuitive React interface for prompt submission and response comparison.
+| Metric | Description |
+|------|------|
+| Latency | Time taken to generate response |
+| Tokens | Total tokens used |
+| Word Count | Length of generated response |
+| Quality Score | AI-evaluated response score |
 
-🔹 Benchmark Visualization
+---
 
-Visual representation of evaluation metrics through graphs.
+## 🔹 Interactive Benchmark Dashboard
 
-🔹 Modular Provider Integration
+The dashboard visualizes performance using charts such as:
 
-Easily integrate additional AI providers like:
+- Latency comparison
+- Token usage comparison
+- Word count comparison
+- Quality score comparison
 
-OpenAI
+This helps users quickly identify **which model performs best**.
 
-Google Gemini
+---
 
-Anthropic Claude
+## 🔹 Modern Dashboard UI
 
-Local LLMs
+The frontend includes:
 
-🔹 Containerized Deployment
+- Clean **white + green professional design**
+- Markdown formatted responses
+- Interactive metric bars
+- Smooth UI transitions
+- Responsive layout
 
-Fully Dockerized architecture enabling seamless deployment.
+---
 
-🏗️ System Architecture
-                ┌────────────────────┐
-                │      User UI       │
-                │    React Frontend  │
-                └─────────┬──────────┘
-                          │
-                          ▼
-                ┌────────────────────┐
-                │    Node.js API     │
-                │  Agent Orchestrator│
-                └─────────┬──────────┘
-                          │
-      ┌───────────────────┼───────────────────┐
-      ▼                   ▼                   ▼
-┌──────────────┐   ┌──────────────┐   ┌──────────────┐
-│   OpenAI     │   │   Gemini     │   │   Claude     │
-│   Provider   │   │   Provider   │   │   Provider   │
-└──────────────┘   └──────────────┘   └──────────────┘
+## 🔹 Dockerized Deployment
 
-                          │
-                          ▼
-                ┌────────────────────┐
-                │  Benchmark Metrics │
-                │  Visualization UI  │
-                └────────────────────┘
-📂 Project Structure
+The entire application is containerized using **Docker**, which provides:
+
+- Easy setup
+- Consistent environment
+- Portable deployment
+- Simplified hosting
+
+---
+
+# 🧠 System Architecture
+
+```
+User Prompt
+     │
+     ▼
+Frontend (React Dashboard)
+     │
+     ▼
+Backend API (Node.js / Express)
+     │
+     ▼
+OpenRouter API
+     │
+     ▼
+Multiple LLM Providers
+(GPT-4o | Llama-3 | DeepSeek)
+     │
+     ▼
+AI Judge Evaluation
+     │
+     ▼
+Metrics Calculation
+     │
+     ▼
+Benchmark Dashboard
+```
+
+---
+
+# 🧰 Technology Stack
+
+## Frontend
+- React.js
+- Tailwind CSS
+- Chart.js
+- Framer Motion
+- React Markdown
+
+## Backend
+- Node.js
+- Express.js
+- Axios
+
+## AI Infrastructure
+- OpenRouter API
+- Multiple LLM Providers
+- AI Judge Evaluation
+
+## DevOps
+- Docker
+- Docker Compose
+
+---
+
+# ⚙️ System Requirements
+
+Before running the project ensure the following tools are installed.
+
+| Tool | Version |
+|-----|------|
+| Node.js | v18 or higher |
+| npm | v9 or higher |
+| Docker | Latest |
+| Docker Compose | Latest |
+| Internet connection | Required for API calls |
+
+---
+
+# 🔑 Environment Setup
+
+Create a `.env` file in the root directory.
+
+```
+OPENROUTER_API_KEY=your_openrouter_api_key
+```
+
+You can generate an API key from:
+
+https://openrouter.ai/keys
+
+---
+
+# 📦 Installation
+
+Clone the repository:
+
+```
+git clone https://github.com/yourusername/responserally.git
+```
+
+Navigate to the project directory:
+
+```
+cd responserally
+```
+
+---
+
+# ▶️ Running the Project (Local Development)
+
+## 1️⃣ Start Backend
+
+Navigate to backend folder:
+
+```
+cd backend
+```
+
+Install dependencies:
+
+```
+npm install
+```
+
+Start backend server:
+
+```
+node server.js
+```
+
+Backend runs at:
+
+```
+http://localhost:5000
+```
+
+---
+
+## 2️⃣ Start Frontend
+
+Open another terminal and navigate to frontend folder:
+
+```
+cd frontend
+```
+
+Install dependencies:
+
+```
+npm install
+```
+
+Start frontend server:
+
+```
+npm start
+```
+
+Frontend runs at:
+
+```
+http://localhost:3000
+```
+
+---
+
+# 🐳 Running the Project with Docker (Recommended)
+
+Docker provides the easiest way to run the entire application.
+
+## Build Docker Containers
+
+```
+docker compose build
+```
+
+## Start Containers
+
+```
+docker compose up
+```
+
+---
+
+## Access the Application
+
+Frontend:
+
+```
+http://localhost:3000
+```
+
+Backend:
+
+```
+http://localhost:5000
+```
+
+---
+
+# 📂 Project Structure
+
+```
 LLM_Project
 │
 ├── backend
 │   ├── providers
-│   │   ├── openaiProvider.js
-│   │   └── geminiProvider.js
+│   │   └── openrouterProvider.js
 │   │
 │   ├── routes
-│   │   └── promptRoutes.js
-│   │
-│   ├── services
-│   │   └── aiService.js
+│   │   └── prompt.js
 │   │
 │   ├── utils
+│   │   ├── aiJudge.js
 │   │   └── metrics.js
 │   │
-│   ├── server.js
-│   └── Dockerfile
+│   └── server.js
 │
 ├── frontend
-│   ├── src
-│   │   ├── components
-│   │   ├── pages
-│   │   └── App.js
+│   ├── components
+│   │   ├── PromptBox.js
+│   │   ├── ResponseCard.js
+│   │   ├── ComparisonGrid.js
+│   │   ├── MetricsChart.js
+│   │   └── BenchmarkChart.js
 │   │
-│   ├── public
-│   └── Dockerfile
+│   ├── services
+│   │   └── api.js
+│   │
+│   └── App.js
 │
 ├── docker-compose.yml
-└── README.md
-⚙️ System Requirements
-Hardware Requirements
+├── README.md
+└── .env
+```
 
-Minimum:
+---
 
-CPU: Dual Core Processor
+# 📊 Example Workflow
 
-RAM: 4 GB
+1️⃣ User enters a prompt
 
-Storage: 5 GB free disk space
+Example:
 
-Recommended:
+```
+Explain Photosynthesis
+```
 
-CPU: Quad Core
+2️⃣ Backend sends request to multiple LLM providers
 
-RAM: 8 GB
+3️⃣ Models generate responses
 
-SSD storage
+4️⃣ AI Judge evaluates the responses
 
-💻 Software Requirements
+5️⃣ Metrics are calculated
 
-Required tools:
+6️⃣ Dashboard displays:
 
-Tool	Version
-Node.js	18+
-npm	9+
-Docker	Latest
-Docker Compose	Latest
-Git	Latest
+- Model responses
+- Latency
+- Token usage
+- Quality score
+- Best model recommendation
 
-Optional:
+---
 
-VS Code
+# 🔮 Future Improvements
 
-Postman (for API testing)
+Possible future upgrades:
 
-📦 Installation
+- Model leaderboard
+- Prompt dataset benchmarking
+- Historical benchmark analytics
+- Export benchmark reports
+- Cloud deployment
+- Advanced evaluation metrics
 
-Clone the repository:
 
-git clone https://github.com/yourusername/responserally.git
 
-Navigate into the project:
+# ⭐ Support
 
-cd responserally
-▶️ Running the Project (Local Development)
-Step 1 — Backend Setup
+If you found this project useful:
 
-Navigate to backend:
+⭐ Star the repository  
+🍴 Fork the project  
+📢 Share with the AI community  
 
-cd backend
+---
 
-Install dependencies:
-
-npm install
-
-Start server:
-
-node server.js
-
-Backend runs at:
-
-http://localhost:5000
-Step 2 — Frontend Setup
-
-Open another terminal:
-
-cd frontend
-
-Install dependencies:
-
-npm install
-
-Run React app:
-
-npm start
-
-Frontend runs at:
-
-http://localhost:3000
-🐳 Running with Docker (Recommended)
-
-Build containers:
-
-docker compose build
-
-Start the application:
-
-docker compose up
-
-Application will be available at:
-
-http://localhost:3000
-
-Stop containers:
-
-docker compose down
-📊 Benchmark Metrics
-
-ResponseRally evaluates AI models based on:
-
-Metric	Description
-Response Quality	Accuracy and relevance
-Latency	Time taken to generate response
-Token Usage	Tokens consumed
-Response Length	Output size
-Consistency	Similarity across responses
-
-These metrics are visualized through interactive charts.
-
-🔌 API Endpoint
-
-Submit prompt:
-
-POST /api/prompt
-
-Example request:
-
-{
- "prompt": "Explain quantum computing in simple terms"
-}
-
-Example response:
-
-{
- "openai": "...",
- "gemini": "...",
- "latency": {
-   "openai": "2.1s",
-   "gemini": "1.8s"
- }
-}
-🌍 Deployment
-
-This project can be deployed on:
-
-Render
-
-AWS
-
-Railway
-
-DigitalOcean
-
-Docker VPS
-
-Example production deployment:
-
-https://responserally.onrender.com
-🔬 Research Applications
-
-ResponseRally can be used for:
-
-AI Model Benchmarking
-
-Prompt Engineering Experiments
-
-LLM Behavior Analysis
-
-AI Response Evaluation
-
-Research Prototyping
-
-🛠️ Technologies Used
-Frontend
-
-React
-
-Axios
-
-Chart.js
-
-Backend
-
-Node.js
-
-Express
-
-REST APIs
-
-DevOps
-
-Docker
-
-Docker Compose
-
-GitHub
-
-📈 Future Enhancements
-
-Planned improvements:
-
-AI auto-evaluation scoring
-
-LLM leaderboard ranking
-
-Dataset benchmarking
-
-Prompt history tracking
-
-Multi-user sessions
-
-Advanced analytics dashboard
-
-🤝 Contributing
-
-Contributions are welcome!
-
-Steps:
-
-1. Fork the repository
-2. Create feature branch
-3. Commit changes
-4. Push branch
-5. Open Pull Request
-📜 License
-
-This project is licensed under the MIT License.
-
-👨‍💻 Author
-
-Ashwin
-
-AI Research Enthusiast
-Full Stack Developer
-
-⭐ Support
-
-If you find this project useful, please consider giving it a star ⭐ on GitHub.
-
-🧠 Final Note
-
-ResponseRally demonstrates how Agentic AI systems can orchestrate multiple LLMs to enable transparent benchmarking and comparative analysis, helping developers and researchers better understand AI model capabilities.
+🚀 **ResponseRally – Benchmarking the Future of AI Models**
